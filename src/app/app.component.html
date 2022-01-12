@@ -1,0 +1,76 @@
+<div class="container"></div>
+<div class="row justify-content-md-center">
+  <h1 class="display-1 text-center" >Weather API</h1> <br> <br> <br> <br> <br> 
+    <div class="col-md-4">
+      <form (submit)="obtenerdatos(ciudad)" class="d-flex" > 
+        <input class="form-control me-2" type="search" placeholder="Ciudad" aria-label="Search" #ciudad>
+        <button type="submit" class="btn btn-success">Buscar</button>
+      </form>
+  </div>
+</div> <br> <br>
+
+    <div  class="container" >
+      
+      <div class="row justify-content-md-center" *ngIf="clima">
+        
+            <div class="col-sm-3" >
+              <div class="card">
+                <h5 class="card-header text-center">Current conditions</h5>
+                    <div  class="card card-body">
+                      <div class="juntos">
+                        <img class="float-sm-start" width="40%" src="{{clima.current.condition.icon}}" alt="">
+                        <br> <h2 class="float-sm-right display-5">{{clima.current.temp_c}} °C </h2>
+                      </div>
+                      <p class="text-center fw-bold fst-italic">{{clima.current.condition.text}}</p>
+                        <p class="fst-italic"><b>Humedad:</b> {{clima.current.humidity}} %</p>
+                        <p class="fst-italic"><b>Vel. del viento:</b> {{clima.current.wind_kph}} Km/h</p>
+                        <p class="fst-italic text-center">{{clima.location.localtime}}</p>
+                    </div>
+              </div>    
+            </div>
+            
+        
+       
+                <div class="col-sm-2 offset-md-1">
+                  <div class="card">
+                    <h5 class="card-header text-center">{{pronostico.forecast.forecastday[0].date}}</h5>
+                      <div  class="card card-body">
+                        <img  width="60%" src="{{pronostico.forecast.forecastday[0].day.condition.icon}}" alt="">
+                        <p class="text-center fw-bold fst-italic">{{pronostico.forecast.forecastday[0].day.condition.text}}</p>
+                        <p class="fst-italic"><b>Max: </b>{{pronostico.forecast.forecastday[0].day.maxtemp_c}} °C</p>
+                        <p class="fst-italic"><b>Min: </b>{{pronostico.forecast.forecastday[0].day.mintemp_c}} °C</p>
+                      </div>
+                  </div>
+                </div>
+            
+                <div class="col-sm-2">
+                  <div class="card">
+                    <h5 class="card-header text-center">{{pronostico.forecast.forecastday[1].date}}</h5>
+                      <div  class="card card-body">
+                        <img  width="60%" src="{{pronostico.forecast.forecastday[1].day.condition.icon}}" alt="">
+                        <p class="text-center fw-bold fst-italic">{{pronostico.forecast.forecastday[1].day.condition.text}}</p>
+                        <p class="fst-italic"><b>Max: </b>{{pronostico.forecast.forecastday[1].day.maxtemp_c}} °C</p>
+                        <p class="fst-italic"><b>Min: </b>{{pronostico.forecast.forecastday[1].day.mintemp_c}} °C</p>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <div class="card">
+                    <h5 class="card-header text-center">{{pronostico.forecast.forecastday[2].date}}</h5>
+                      <div  class="card card-body">
+                        <img  width="60%" src="{{pronostico.forecast.forecastday[2].day.condition.icon}}" alt="">
+                        <p class="text-center fw-bold fst-italic">{{pronostico.forecast.forecastday[2].day.condition.text}}</p>
+                        <p class="fst-italic"><b>Max: </b>{{pronostico.forecast.forecastday[2].day.maxtemp_c}} °C</p>
+                        <p class="fst-italic"><b>Min: </b>{{pronostico.forecast.forecastday[2].day.mintemp_c}} °C</p>
+                      </div>
+                    </div>
+                </div>
+          
+              </div>
+  </div>
+<br> <br> <br> <br>
+<div class="footer-copyright text-center py-3">© 2020 Copyright: Sair Hernandez
+  <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a>
+  Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
+</div>
